@@ -18,10 +18,6 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Технические требования
 
-Next.js (App Router)
-
-Tailwind CSS
-
-TypeScript
-
-```
+- Next.js (App Router)
+- Tailwind CSS
+- TypeScript
