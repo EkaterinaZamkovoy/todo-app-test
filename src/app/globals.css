@@ -11,14 +11,18 @@
   --color-basicText: #fff;
   --color-secondary: ;
   --color-secondaryHover: ;
-  --color-danger: ;
-  --color-dangerHover: ;
+  --color-danger: #c50034;
+  --color-dangerHover: #c50034;
   --color-greyLight: #f8f8f8;
   --color-greyMedium: #9b9b9b;
-  --color-greyDark: ;
-  --color-statusTodo: ;
-  --color-statusInProgress: ;
-  --color-statusDone: ;
+  --color-greyDark: #697382;
+  --color-taskTitle: #4b0150;
+  --color-statusTodo: #d1d6dc;
+  --color-statusTodoText: #1d2937;
+  --color-statusInProgress: #ffe022;
+  --color-statusInProgressText: #884b00;
+  --color-statusDone: #79f1a8;
+  --color-statusDoneText: #02672f;
   }
 
 
