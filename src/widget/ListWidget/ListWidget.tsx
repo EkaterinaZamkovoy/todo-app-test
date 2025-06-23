@@ -51,6 +51,23 @@ export const ListWidget = ({ tasks, getCategoryName }: Props) => {
     filtersAndTasksGroups: 'flex flex-col gap-4',
   };
 
+  const onChangeStatusFilterHandler = (selectedName: string) => {
+    const match = Statuses.find((s) => s.name === selectedName);
+    if (match) setActiveStatus(match.id);
+  };
+
+  const onChangeCategoryFilterHandler = (selectedName: string) => {
+    const match = Categories.find((s) => s.name === selectedName);
+    if (match) setActiveCategory(match.id);
+  };
+
+  const onChangeSortHandler = (selectedLabel: string) => {
+    const key = Object.entries(sortLabels).find(
+      ([, label]) => label === selectedLabel
+    )?.[0];
+    if (key) setSortBy(key as typeof sortBy);
+  };
+
   return (
     <div className={classNames.container}>
       <div className={classNames.filtersAndTasksGroups}>
@@ -58,10 +75,7 @@ export const ListWidget = ({ tasks, getCategoryName }: Props) => {
           title='Статус:'
           filters={Statuses.map((s) => s.name)}
           active={Statuses.find((s) => s.id === activeStatus)?.name ?? 'Все'}
-          onChange={(selectedName) => {
-            const match = Statuses.find((s) => s.name === selectedName);
-            if (match) setActiveStatus(match.id);
-          }}
+          onChange={onChangeStatusFilterHandler}
         />
         <FilterButtonGroup
           title='Категория:'
@@ -70,21 +84,13 @@ export const ListWidget = ({ tasks, getCategoryName }: Props) => {
             Categories.find((c) => c.id === activeCategory)?.name ??
             'Все категории'
           }
-          onChange={(selectedName) => {
-            const match = Categories.find((c) => c.name === selectedName);
-            if (match) setActiveCategory(match.id);
-          }}
+          onChange={onChangeCategoryFilterHandler}
         />
         <FilterButtonGroup
           title='Сортировать:'
           filters={Object.values(sortLabels)}
           active={sortLabels[sortBy]}
-          onChange={(selectedLabel) => {
-            const key = Object.entries(sortLabels).find(
-              ([, label]) => label === selectedLabel
-            )?.[0];
-            if (key) setSortBy(key as typeof sortBy);
-          }}
+          onChange={onChangeSortHandler}
         />
       </div>
 
